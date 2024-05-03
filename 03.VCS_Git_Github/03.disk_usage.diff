@@ -1,0 +1,26 @@
+--- 01.disk_usage_orginal.py	2024-05-02 23:10:43.861668000 +0530
++++ 02.disk_usage_fixed.py	2024-05-02 22:55:13.364511900 +0530
+@@ -1,6 +1,7 @@
+ #!/usr/bin/env python3
+ 
+ import shutil
++import sys
+ 
+ 
+ def check_disk_usage(disk, min_absolute, min_percent):
+@@ -16,12 +17,9 @@
+ 
+ 
+ # Check for at least 2 GB and 10% free
+-# ERROR: converting gb to bytes twice
+-if not check_disk_usage("/", 2*2**30, 10):
++if not check_disk_usage("/", 2, 10):
+     print("ERROR: Not enough disk space")
+-    # ERROR:  return statement  outside any fuction
+-    return 1
++    sys.exit(1)
+ 
+ print("Everything ok")
+-# ERROR:  return statement  outside any fuction
+-return 0
++sys.exit(0)
